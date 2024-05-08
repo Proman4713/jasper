@@ -48,7 +48,7 @@ export const TagEvent: Event = DefineEvent({
             wrappedTag.data.TagEmbedFooter ? Object.defineProperty(embedObject, "footer", { value: { text: wrappedTag.data.TagEmbedFooter } }) : Object.defineProperty(embedObject, "footer", { value: null });
             const originalPosterPing: string = message.channel.parent.type == ChannelType.GuildForum ? `<@${(await message.thread.fetchOwner()).id}>` : "";
             const reply = {
-              content: originalPosterPing,
+              content: wrappedTag.data.TagName == "done" ? originalPosterPing : "",
               embeds: [
                 {
                   title: wrappedTag.data.TagEmbedTitle,
